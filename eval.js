@@ -16,7 +16,6 @@ function getRefined(){
 
     return refined_src;
 }
-
 function print(x) {
     console.log(x)
 }
@@ -54,7 +53,6 @@ function ASTmult(){ //substitute expr so it only has + or - left, evaluate all *
 
     return mainSrc.shift();
 }
-
 function ASTbrack(){
     while(mainSrc.indexOf("(") !== -1){
         let bracketIndexOpen = mainSrc.indexOf("(");
@@ -104,7 +102,6 @@ function evaluate(ast_sect){
     }
     return ret !== undefined ? ret : "Error; Check Expression";
 }
-
 function subeval(lhs, op, rhs){
     switch(op){
         case "+":
@@ -122,7 +119,6 @@ function isObj(value) {
     return typeof value === 'object' && value !== null && !Array.isArray(value)
 
 }
-
 function firstIndexOfEither(arr, a, b) {
     const indexA = arr.indexOf(a);
     const indexB = arr.indexOf(b);
