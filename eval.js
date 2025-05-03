@@ -43,7 +43,7 @@ function ASTmult(){ //substitute expr so it only has + or - left, evaluate all *
             let rhs = mainSrc[hold + 1];
 
             mainSrc.splice(hold - 1, 3)
-            mainSrc.splice(hold-1, 0, eval({lhs: lhs, op: op, rhs: rhs}));
+            mainSrc.splice(hold-1, 0, evaluate({lhs: lhs, op: op, rhs: rhs}));
             mainSrc = mainSrc.map(String)
             print(mainSrc)
 
@@ -85,7 +85,7 @@ function ASTbrack(){
         mainSrc = subAST;
 
         //run ast add again, which will now be working on the sub ast, and capture evaluated val
-        let bracketASTevaluated = eval(ASTadd());
+        let bracketASTevaluated = evaluate(ASTadd());
 
         //reset mainSrc to temporary mainSrc
         mainSrc = tempMainSrc;
@@ -95,14 +95,14 @@ function ASTbrack(){
     }
 }
 
-print("MAIN => " + eval(ASTadd()))
+print("MAIN => " + evaluate(ASTadd()))
 
-function eval(ast_sect){
+function evaluate(ast_sect){
     let ret;
     if(!isObj(ast_sect.lhs)){
         ret = subeval(ast_sect.lhs, ast_sect.op, ast_sect.rhs);
     }else{
-        ret = subeval(eval(ast_sect.lhs), ast_sect.op, ast_sect.rhs);
+        ret = subeval(evaluate(ast_sect.lhs), ast_sect.op, ast_sect.rhs);
     }
     return ret;
 }
