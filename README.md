@@ -1,0 +1,2 @@
+// -x must be shown as (0-x) ps there's a version of the code where we can work with -x as it is but for that there must be a gap between each symbol ; to test that version out use GetRefinedVariation, either refactor or rename the function, commenting out original get refined.
+// use of unnecessary brackets wrapped around eq returns an error
