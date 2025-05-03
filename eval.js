@@ -1,7 +1,14 @@
 //Change this to you desired expr;
-const expression = "12 / 2 * (2 - (1+1)) + 2 - 3"
 //Note: there are many debug logs before the final answer; final answer denoted by MAIN =>
 
+const expression = "12 / 2 * (2 - (1+1)) + 2 - 3"
+
+//ORIGINAL const expression = "(0-12)+1"
+//VARIATION <alpha> const expression = "-12 + 1"
+
+function getRefinedVariation(){
+    return expression.split(" ").filter(x => x !== " ");
+}
 function getRefined(){
 
     let src = expression.split("").filter(x => x !== " ")
@@ -131,3 +138,7 @@ function firstIndexOfEither(arr, a, b) {
 
 let mainSrc = getRefined();
 print("MAIN => " + evaluate(ASTadd()))
+
+//README
+// -x must be shown as (0-x) ps there's a version of the code where we can work with -x as it is but for that there must be a gap between each symbol ; to test that version out use GetRefinedVariation, either refactor or rename the function, commenting out original get refined.
+// use of unnecessary brackets wrapped around eq returns an error
