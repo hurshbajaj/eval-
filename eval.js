@@ -102,7 +102,7 @@ function evaluate(ast_sect){
     }else{
         ret = subeval(evaluate(ast_sect.lhs), ast_sect.op, ast_sect.rhs);
     }
-    return ret;
+    return ret !== undefined ? ret : "Error; Check Expression";
 }
 
 function subeval(lhs, op, rhs){
