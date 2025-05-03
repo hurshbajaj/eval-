@@ -1,5 +1,5 @@
 function getRefined(){
-    const expression = "12 / 2 + 2 - 3 * (2 - (1+1))" //5
+    const expression = "12 / 2 + 2 - 3 * (2 - (1+1))"
 
     let src = expression.split("").filter(x => x !== " ")
     let refined_src = [];
