@@ -1,5 +1,7 @@
+//Change this to you desired expr;
+const expression = "12 / 2 * (2 - (1+1)) + 2 - 3"
+
 function getRefined(){
-    const expression = "12 / 2 + 2 - 3 * (2 - (1+1))"
 
     let src = expression.split("").filter(x => x !== " ")
     let refined_src = [];
@@ -18,8 +20,6 @@ function getRefined(){
 function print(x) {
     console.log(x)
 }
-
-let mainSrc = getRefined();
 
 function ASTadd(){ //assume expr only has + or -
     let lhs = ASTmult();
@@ -95,8 +95,6 @@ function ASTbrack(){
     }
 }
 
-print("MAIN => " + evaluate(ASTadd()))
-
 function evaluate(ast_sect){
     let ret;
     if(!isObj(ast_sect.lhs)){
@@ -133,3 +131,6 @@ function firstIndexOfEither(arr, a, b) {
     if (indexB === -1) return indexA;
     return Math.min(indexA, indexB);
 }
+
+let mainSrc = getRefined();
+print("MAIN => " + evaluate(ASTadd()))
